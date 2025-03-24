@@ -57,20 +57,6 @@ const e=`
       ...CUSTOMIZABLE_OPTIONS_FRAGMENT
     }
   }
-`,t=`
-  fragment APPLIED_GIFT_CARDS_FRAGMENT on AppliedGiftCard {
-    __typename
-    code
-    applied_balance {
-      value
-      currency
-    }
-    current_balance {
-      value
-      currency
-    }
-    expiration_date
-  }
 `,r=`
   fragment GIFT_MESSAGE_FRAGMENT on GiftMessage {
     __typename
@@ -166,11 +152,6 @@ const e=`
       name
       sku
       gift_message_available
-      gift_wrapping_available
-      gift_wrapping_price {
-        currency
-        value
-      }
       thumbnail {
         url
         label
@@ -293,9 +274,6 @@ const e=`
     id
     total_quantity
     is_virtual
-    applied_gift_cards {
-      ...APPLIED_GIFT_CARDS_FRAGMENT
-    }
     gift_receipt_included
     printed_card_included
     gift_message {
@@ -313,23 +291,11 @@ const e=`
           currency
           value
         }
-        gift_wrapping_for_items_incl_tax {
-          currency
-          value
-        }
         gift_wrapping_for_order {
           currency
           value
         }
-        gift_wrapping_for_order_incl_tax {
-          currency
-          value
-        }
         printed_card {
-          currency
-          value
-        }
-        printed_card_incl_tax {
           currency
           value
         }
@@ -397,5 +363,4 @@ const e=`
   }
 
   ${l}
-  ${t}
-`;export{t as APPLIED_GIFT_CARDS_FRAGMENT,n as AVAILABLE_GIFT_WRAPPING_FRAGMENT,c as CART_FRAGMENT,l as CART_ITEM_FRAGMENT,a as DOWNLOADABLE_CART_ITEMS_FRAGMENT,r as GIFT_MESSAGE_FRAGMENT,i as GIFT_WRAPPING_FRAGMENT};
+`;export{n as AVAILABLE_GIFT_WRAPPING_FRAGMENT,c as CART_FRAGMENT,l as CART_ITEM_FRAGMENT,a as DOWNLOADABLE_CART_ITEMS_FRAGMENT,r as GIFT_MESSAGE_FRAGMENT,i as GIFT_WRAPPING_FRAGMENT};

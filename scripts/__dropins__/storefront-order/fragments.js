@@ -35,10 +35,6 @@ const o=`
     name
     sku
     only_x_left_in_stock
-    gift_wrapping_price {
-      currency
-      value
-    }
     stock_status
     thumbnail {
       label
@@ -106,9 +102,6 @@ const o=`
     quantity_invoiced
     quantity_refunded
     quantity_return_requested
-    gift_message {
-      ...GIFT_MESSAGE_FRAGMENT
-    }
     product_sale_price {
       value
       currency
@@ -160,32 +153,6 @@ const o=`
   ${E}
 `,R=`
   fragment ORDER_SUMMARY_FRAGMENT on OrderTotal {
-    gift_options {
-      gift_wrapping_for_items {
-        currency
-        value
-      }
-      gift_wrapping_for_items_incl_tax {
-        currency
-        value
-      }
-      gift_wrapping_for_order {
-        currency
-        value
-      }
-      gift_wrapping_for_order_incl_tax {
-        currency
-        value
-      }
-      printed_card {
-        currency
-        value
-      }
-      printed_card_incl_tax {
-        currency
-        value
-      }
-    }
     grand_total {
       value
       currency
@@ -267,15 +234,6 @@ const o=`
       }
     }
   }
-`,T=`
-  fragment APPLIED_GIFT_CARDS_FRAGMENT on ApplyGiftCardToOrder {
-    __typename
-    code
-    applied_balance {
-      value
-      currency
-    }
-  }
 `,u=`
   fragment GIFT_MESSAGE_FRAGMENT on GiftMessage {
     __typename
@@ -319,9 +277,6 @@ const o=`
     }
     gift_message {
       ...GIFT_MESSAGE_FRAGMENT
-    }
-    applied_gift_cards {
-      ...APPLIED_GIFT_CARDS_FRAGMENT
     }
     items_eligible_for_return {
       ...ORDER_ITEM_DETAILS_FRAGMENT
@@ -402,5 +357,4 @@ const o=`
   ${i}
   ${A}
   ${u}
-  ${T}
-`;export{e as ADDRESS_FRAGMENT,T as APPLIED_GIFT_CARDS_FRAGMENT,d as AVAILABLE_GIFT_WRAPPING_FRAGMENT,a as BUNDLE_ORDER_ITEM_DETAILS_FRAGMENT,E as DOWNLOADABLE_ORDER_ITEMS_FRAGMENT,t as GIFT_CARD_DETAILS_FRAGMENT,u as GIFT_MESSAGE_FRAGMENT,A as GIFT_WRAPPING_FRAGMENT,s as GUEST_ORDER_FRAGMENT,n as ORDER_ITEM_DETAILS_FRAGMENT,i as ORDER_ITEM_FRAGMENT,R as ORDER_SUMMARY_FRAGMENT,r as PRICE_DETAILS_FRAGMENT,_ as PRODUCT_DETAILS_FRAGMENT,o as REQUEST_RETURN_ORDER_FRAGMENT,c as RETURNS_FRAGMENT};
+`;export{e as ADDRESS_FRAGMENT,d as AVAILABLE_GIFT_WRAPPING_FRAGMENT,a as BUNDLE_ORDER_ITEM_DETAILS_FRAGMENT,E as DOWNLOADABLE_ORDER_ITEMS_FRAGMENT,t as GIFT_CARD_DETAILS_FRAGMENT,u as GIFT_MESSAGE_FRAGMENT,A as GIFT_WRAPPING_FRAGMENT,s as GUEST_ORDER_FRAGMENT,n as ORDER_ITEM_DETAILS_FRAGMENT,i as ORDER_ITEM_FRAGMENT,R as ORDER_SUMMARY_FRAGMENT,r as PRICE_DETAILS_FRAGMENT,_ as PRODUCT_DETAILS_FRAGMENT,o as REQUEST_RETURN_ORDER_FRAGMENT,c as RETURNS_FRAGMENT};
